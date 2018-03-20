@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <title>Mo Bands - Form</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Firebase Reference -->
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+
+    <!-- Link to Moment.js should go here -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <!-- Band Form Container -->
+    <div class="container">
+
+      <!-- Jumbotron -->
+      <div class="jumbotron" style="background-color:#1e242e; color:white">
+        <h1 class="text-center">Mo Bands</h1>
+        <h3 class="text-center">Band Input Form</h3>
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-12">
+
+          <!-- Add you band Info  -->
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title"><strong>Tell us what you need</strong></h3>
+            </div>
+            <div class="panel-body">
+
+              <!-- Entry Form -->
+              <form>
+                <div class="form-group">
+                  <label for="band-name-input">Band Name</label>
+                  <input class="form-control" id="band-name-input" type="text">
+                </div>
+                <div class="form-group">
+                  <label for="need-input">Need</label>
+                  <input class="form-control" id="need-input" type="text">
+                </div>
+                <div class="form-group">
+                  <label for="time-input">When do you need it? (mm/dd/yy)</label>
+                  <input class="form-control" id="time-input" type="text">
+                </div>
+                <div class="form-group">
+                  <label for="description-input">Description of your Band</label>
+                  <input class="form-control" id="description-input" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="media-input">Post your media</label>
+                    <input class="form-control" id="media-input" type="text">
+                  </div>
+                <button class="btn btn-primary" id="add-band-btn" type="submit">Submit</button>
+              </form>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script text = 'JavaScript'>
+    //First I need to initialize Firebase
+    var config = {
+            apiKey: "AIzaSyC22pg8At8rnWwjY-8HhGMlL8RSqtIO-lw",
+            authDomain: "mo-bands-mo-problems.firebaseapp.com",
+            databaseURL: "https://mo-bands-mo-problems.firebaseio.com",
+            projectId: "mo-bands-mo-problems",
+            storageBucket: "mo-bands-mo-problems.appspot.com",
+            messagingSenderId: "172100309774"
+        };
+        firebase.initializeApp(config);
+
+    var database = firebase.database();
+    
+        // Next I need to add functionality to submit button on html for adding band schedules + update the database
+        $("#add-band-btn").on("click", function (event) {
+            event.preventDefault();
+
+            // Need to add variables to collect user inputs
+            var bandName = $("#band-name-input").val().trim();
+            var bandNeed = $("#need-input").val().trim();
+            var bandTime = moment($("#time-input").val().trim(), "MM/DD/YY").format("MM/DD/YY");
+            var bandDescription = $("#description-input").val().trim();
+            var bandMedia = $("#media-input").val().trim();
+
+            // Creates local "temporary" object for holding band data
+            var newBand = {
+                name: bandName,
+                need: bandNeed,
+                need_date: bandTime,
+                description: bandDescription,
+                media:bandMedia,
+            };
+
+            //uploads band data to the database
+            database.ref().push(newBand);
+
+            // logs everything into the console
+            console.log(newBand.name);
+            console.log(newBand.need);
+            console.log(newBand.need_date);
+            console.log(newBand.description);
+            console.log(newBand.media);
+
+            //add an alert to notify user info was added successfully
+            alert("You've been added to Mo Bands")
+
+            //Of course you have to clear all of the text boxes
+            $("#band-name-input").val("");
+            $("#need-input").val("");
+            $("#time-input").val("");
+            $("#description-input").val("");
+            $("#media-input").val("");
+
+            // 3. Create Firebase event for adding new band schedule to the firebase database and dynamically create row in html after user click submit button
+      database.ref().on("child_added", function(childSnapshot, prevChildKey) {
+          
+          console.log(childSnapshot.val());
+          // Store everything into a variable.
+            var bandName = childSnapshot.val().name;
+            var bandNeed = childSnapshot.val().need;
+            var bandTime = childSnapshot.val().need_date;
+            var bandDescription = childSnapshot.val().description;
+            var bandMedia = childSnapshot.val().media;
+  
+            // Band Info
+            console.log(bandName);
+            console.log(bandNeed);
+            console.log(bandTime);
+            console.log(bandDescription);
+            console.log(bandMedia);
+  
+        });
+  
+  
+    });
+            
+
+    
+    </script>
+
+  </body>
+
+</html>
