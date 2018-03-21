@@ -35,6 +35,16 @@ window.fbAsyncInit = function() {
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 
+ 
+var finished_rendering = function() {
+  console.log("finished rendering plugins");
+  var spinner = document.getElementById("spinner");
+  spinner.removeAttribute("style");
+  spinner.removeChild(spinner.childNodes[0]);
+}
+FB.Event.subscribe('xfbml.render', finished_rendering);
+
+
    // login with extra permissions
    function login () {
        FB.login(function(response){
