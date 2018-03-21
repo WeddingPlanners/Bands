@@ -12,7 +12,7 @@ window.fbAsyncInit = function() {
       appId            : '1478871842240454',
       autoLogAppEvents : true,
       xfbml            : true,
-      version          : 'v2.12'
+      version          : 'v2.5'
     });
   };
   FB.getLoginStatus(function(response){
