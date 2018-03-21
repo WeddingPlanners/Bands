@@ -28,3 +28,5 @@ function onPlayerReady(event) {
   player.setPlaybackRate(1);
 
 }
+
+
