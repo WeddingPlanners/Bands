@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,7 +38,6 @@
            js.src = "https://connect.facebook.net/en_US/sdk.js";
            fjs.parentNode.insertBefore(js, fjs);
          }(document, 'script', 'facebook-jssdk'));
-
          function statusChangeCallback(response){
              if(response.status === 'connected')
              console.log('logged in and authenticated');
@@ -45,8 +45,6 @@
              console.log('not authenticated');
         }
     }
-
-
         function checkLoginState() {
         FB.getLoginStatus(function(response) {
             statusChangeCallback(response);
