@@ -14,42 +14,42 @@
 
 <body>
 
-        <script>
-                window.fbAsyncInit = function() {
-                  FB.init({
-                    appId      : '1478871842240454',
-                    cookie     : true,
-                    xfbml      : true,
-                    version    : 'v2.12'
-                  });
-                    
-                        
-                FB.getLoginStatus(function(response) {
-                    statusChangeCallback(response);
-                }); 
-                    
-                };
-              
-                (function(d, s, id){
-                   var js, fjs = d.getElementsByTagName(s)[0];
-                   if (d.getElementById(id)) {return;}
-                   js = d.createElement(s); js.id = id;
-                   js.src = "https://connect.facebook.net/en_US/sdk.js";
-                   fjs.parentNode.insertBefore(js, fjs);
-                 }(document, 'script', 'facebook-jssdk'));
-                 function statusChangeCallback(response){
-                     if(response.status === 'connected')
-                     console.log('logged in and authenticated');
-                  else {
-                     console.log('not authenticated');
-                }
-            }
-                function checkLoginState() {
-                FB.getLoginStatus(function(response) {
-                    statusChangeCallback(response);
-                });
-                }
-              </script>
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+        appId      : '1478871842240454',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v2.12'
+        });
+        
+            
+    FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+    }); 
+        
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+        function statusChangeCallback(response){
+            if(response.status === 'connected')
+            console.log('logged in and authenticated');
+        else {
+            console.log('not authenticated');
+    }
+    }
+    function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+    });
+    }
+</script>
 
     <nav class="navbar navbar-silver">
         <div class="container-fluid">
@@ -99,9 +99,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="band_form.html">Make a Post</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="fbTest.html">FACEBOOK TEST</a>
                     </li>
                 </ul>
 
@@ -212,7 +209,7 @@
     <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!--<script type="text/javascript" src="advertisement.js"></script>-->
-    <script type="text/javascript" src="./assets/javascript/facebookAPI.js"></script>
+
 </body>
 
 </html>
