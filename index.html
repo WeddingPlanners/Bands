@@ -163,7 +163,7 @@ gunn                                <option value="---">...</option>
             </iframe>
         </div>
     </div>
-    <div id="spinner"
+    <!-- <div id="spinner"
     style="
         background: #4267b2;
         border-radius: 5px;
@@ -172,25 +172,24 @@ gunn                                <option value="---">...</option>
         text-align: center;
         width: 250px;">
     Loading
-    <div
+    <div>
     class="fb-login-button"
     data-max-rows="1"
     data-size="large"
     data-button-type="continue_with"
     data-use-continue-as="true"
-    ></div>
-</div>
+    </div>
+</div> -->
+<div id="status"></div>
+<button onclick="uploadPhoto()">Upload Photo</button>
+<button onclick="getInfo()">Get Info</button>
+<button onclick="login()" id="login">Login</button>
+<button onclick="readPermission()" id="readPermission">readPermission</button>
 
     <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<<<<<<< HEAD
     <!--<script type="text/javascript" src="advertisement.js"></script>-->
     <script type="text/javascript" src="./assets/javascript/facebookAPI.js"></script>
-=======
-
-    <script src="./assets/javascript/facebookAPI.js"></script>
-
->>>>>>> 121beba93710a10129828d9f36d361ab33ab4410
 </body>
 
 </html>
