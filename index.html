@@ -33,10 +33,10 @@
     (function(d, s, id){
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) {return;}
-        js = d.createElement(s); js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
         function statusChangeCallback(response){
             if(response.status === 'connected')
             console.log('logged in and authenticated');
@@ -45,8 +45,8 @@
     }
     }
     function checkLoginState() {
-    FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
+        FB.getLoginStatus(function(response) {
+            statusChangeCallback(response);
     });
     }
 </script>
@@ -65,7 +65,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <fb:login-button 
-                    scope="public_profile,email"
+                    scope="public_profile,email, loction"
                     onlogin="checkLoginState();">
                     </fb:login-button>
                 </li>
