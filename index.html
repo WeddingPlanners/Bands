@@ -15,49 +15,6 @@
 
 <body>
 
-<<<<<<< HEAD
-    <script>
-        window.fbAsyncInit = function () {
-            FB.init({
-                appId: '1478871842240454',
-                cookie: true,
-                xfbml: true,
-                version: 'v2.12'
-            });
-
-
-            FB.getLoginStatus(function (response) {
-                statusChangeCallback(response);
-            });
-
-        };
-
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {
-                return;
-            }
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-
-        function statusChangeCallback(response) {
-            if (response.status === 'connected')
-                console.log('logged in and authenticated');
-            else {
-                console.log('not authenticated');
-            }
-        }
-
-        function checkLoginState() {
-            FB.getLoginStatus(function (response) {
-                statusChangeCallback(response);
-            });
-        }
-    </script>
-=======
 <script>
     window.fbAsyncInit = function() {
         FB.init({
@@ -94,7 +51,6 @@
     });
     }
 </script>
->>>>>>> 8a8fdefb9f4febcdb3cd0884e06701ec90cde928
 
     <nav class="navbar navbar-silver">
         <div class="container-fluid">
@@ -109,13 +65,9 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <li>
-<<<<<<< HEAD
-                    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-=======
-                    <fb:login-button 
+                    <fb:login-button
                     scope="public_profile,email, loction"
                     onlogin="checkLoginState();">
->>>>>>> 8a8fdefb9f4febcdb3cd0884e06701ec90cde928
                     </fb:login-button>
                 </li>
             </ul>
@@ -245,13 +197,7 @@
                     </div>
                 </div>
             </div>
-            <div id="advertisement">
-                <iframe src="advertisement.html" name="targetframe" allowTransparency="true" scrolling="yes" frameborder="0">
-                </iframe>
-            </div>
         </div>
-<<<<<<< HEAD
-=======
         <div class="row">
             <div class="col-sm-10-md-9-lg-12">
                 <div id="advertisement">
@@ -261,7 +207,6 @@
             </div>
         </div>
     </div>
->>>>>>> 8a8fdefb9f4febcdb3cd0884e06701ec90cde928
 
         <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
