@@ -47,6 +47,11 @@
     }
 
 
+        function checkLoginState() {
+        FB.getLoginStatus(function(response) {
+            statusChangeCallback(response);
+        });
+        }
       </script>
 
     <nav class="navbar navbar-silver">
@@ -69,7 +74,10 @@
             <nav class="col-md-3 col-md-2 hidden-xs-down bg-faded sidebar">
                 <ul class="nav nav-pills flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Login</a>
+                        <fb:login-button 
+                        scope="public_profile,email"
+                        onlogin="checkLoginState();">
+                        </fb:login-button>
                     </li>
                 </ul>
             </nav>
