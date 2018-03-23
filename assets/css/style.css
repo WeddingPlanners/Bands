@@ -2,6 +2,8 @@
     box-sizing: border-box;
 }
 
+#fb-btn {margin-top:20px;}
+
 body {
     font-family: 'Monoton', cursive;
     background-color: black;
@@ -165,7 +167,7 @@ li {
     color: rgba(194, 235, 11, 0.938);
     font-size: 15px;
 }
-.states>
+
 
 /* .nav-link{
     font-size: 20px;
