@@ -3,62 +3,70 @@
 }
 
 body {
-background-color:black;
-background-image:
-radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
-radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
-radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
-radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
-background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
-background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+    font-family: 'Monoton', cursive;
+    background-color: black;
+    background-image: radial-gradient(white, rgba(255, 255, 255, .2) 2px, transparent 40px), radial-gradient(white, rgba(255, 255, 255, .15) 1px, transparent 30px), radial-gradient(white, rgba(255, 255, 255, .1) 2px, transparent 40px), radial-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, .1) 2px, transparent 30px);
+    background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+    background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
 }
 
 .nav-item {
     text-align: center;
 }
 
-#master{
+#master {
     max-width: 1020px;
     margin: 0 auto;
 }
-#left-nav{
-    position:relative;
+
+#left-nav {
+    position: relative;
     top: 20px;
 }
+
 #left-nav a {
     color: #000;
 }
-.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+
+.nav-pills>li.active>a,
+.nav-pills>li.active>a:hover,
+.nav-pills>li.active>a:focus {
     color: #fff;
     background-color: silver;
     margin-bottom: 0;
 }
+
 .nav-pills ul {
     margin-top: 20px;
 }
+
 .nav-pills>li>a {
     background-color: silver;
     margin-bottom: 1px;
     padding: 5px 9px;
+    color: black;
 }
+
 #swf_container {
     background: #fff;
     margin-top: 20px;
 }
-#swf_container img{
+
+#swf_container img {
     position: relative;
     top: 0;
     left: 30px;
 }
+
 nav.navbar-silver {
     background-color: silver;
 }
+
 nav.navbar-silver a {
-       color: #111;
+    color: #111;
 }
 
-
-#advertisement{
+#advertisement {
     background-color: white;
     height: 200px;
     width: 600px;
@@ -79,22 +87,26 @@ iframe {
     height: 100%;
 }
 
-li{
+.navbar-brand {
+    font-family: 'Monoton', cursive;
+    font-size: 50px;
+}
+
+li {
     display: inline;
     text-align: center;
     font-family: 'Monoton', cursive;
 }
-.carousel-control.left
-{
-    background: none;
-}
-.carousel-control.right
-{
+
+.carousel-control.left {
     background: none;
 }
 
-.carousel-control
-{
+.carousel-control.right {
+    background: none;
+}
+
+.carousel-control {
     position: absolute;
     top: 45%;
     bottom: 0;
@@ -106,16 +118,16 @@ li{
     opacity: 1;
     text-shadow: none;
 }
-.carousel-control:hover
-{
+
+.carousel-control:hover {
     color: #000;
 }
-.carousel-indicators
-{
+
+.carousel-indicators {
     bottom: -50px;
 }
-.carousel-indicators li
-{
+
+.carousel-indicators li {
     display: inline-block;
     width: 10px;
     height: 10px;
@@ -123,19 +135,20 @@ li{
     text-indent: -999px;
     cursor: pointer;
     background-color: whitesmoke;
-    background-color: rgba(0,0,0,0);
+    background-color: rgba(0, 0, 0, 0);
     border: 1px solid #16a085;
     border-radius: 50%;
+    visibility: hidden;
 }
-.carousel-indicators .active
-{
+
+.carousel-indicators .active {
     width: 12px;
     height: 12px;
     margin: 0;
     background-color: #16a085;
 }
-.carousel-caption
-{
+
+.carousel-caption {
     position: absolute;
     right: 0;
     bottom: 0;
@@ -145,6 +158,15 @@ li{
     padding-bottom: 20px;
     color: #fff;
     text-align: center;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0, 0, 0, 0.4);
 }
 
+.states{
+    color: rgba(194, 235, 11, 0.938);
+    font-size: 15px;
+}
+.states>
+
+/* .nav-link{
+    font-size: 20px;
+} */
