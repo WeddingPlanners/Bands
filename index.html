@@ -69,12 +69,15 @@
             </div>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a id="logout" href="#" onclick="logout()">logout</a></li>
+
                 <li>
 
                     <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
                     
                     </fb:login-button>
+                </li>
+                <li>
+                    <a id="logout" href="#" onclick="logout()">Logout</a>
                 </li>
             </ul>
         </div>
