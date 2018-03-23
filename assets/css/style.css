@@ -2,7 +2,9 @@
     box-sizing: border-box;
 }
 
+/* Facebook Stuff */
 #fb-btn {margin-top:20px;}
+#logout {display:none}
 
 body {
 background-color:black;
