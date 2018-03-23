@@ -38,10 +38,12 @@
             js.src = "https://connect.facebook.net/en_US/sdk.js";
             fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
+        
         function statusChangeCallback(response){
-            if(response.status === 'connected')
+          if(response.status === 'connected'){
             console.log('logged in and authenticated');
-        else {
+                setElements(true);
+        } else {
             console.log('not authenticated');
     }
     }
@@ -49,6 +51,22 @@
         FB.getLoginStatus(function(response) {
             statusChangeCallback(response);
     });
+    }
+
+    function setElements(isLoggedIn){
+        if(isLoggedIn){
+            document.getElementById('fb-btn').style.display = 'none';
+            document.getElementById('logout').style.display = 'block';
+        } else {
+            document.getElementById('fb-btn').style.display = 'block';
+            document.getElementById('logout').style.display = 'none';
+        }
+    }
+
+    function logout(){
+        FB.logout(function(response){
+            setElements(false);
+        });
     }
 </script>
 
@@ -64,9 +82,10 @@
             </div>
 
             <ul class="nav navbar-nav navbar-right">
+                <li><a id="logout" href="#" onclick="logout()">logout</a></li>
                 <li>
-                    <fb:login-button
-                    scope="public_profile,email"
+                    <fb:login-button id="fb-btn"
+                    scope="public_profile,email, location"
                     onlogin="checkLoginState();">
                     </fb:login-button>
                 </li>
