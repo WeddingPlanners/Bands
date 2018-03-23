@@ -157,10 +157,11 @@
             $("#media-input").val("");
 
             // 3. Create Firebase event for adding new band schedule to the firebase database and dynamically create row in html after user click submit button
-      database.ref().on("child_added", function(childSnapshot, prevChildKey) {
+            database.ref().on("child_added", function(childSnapshot, prevChildKey) {
           
-          console.log(childSnapshot.val());
-          // Store everything into a variable.
+            console.log(childSnapshot.val());
+            
+            // Store everything into a variable.
             var bandName = childSnapshot.val().name;
             var bandNeed = childSnapshot.val().need;
             var bandTime = childSnapshot.val().need_date;
@@ -178,7 +179,6 @@
             $("#posts-table > tbody").append("<tr><td>" + bandName + "</td><td>" + bandNeed + "</td><td>" +
               bandTime + "</td><td>" + bandDescription + "</td><td>" + bandMedia + "</td></tr>");
 
-  
         });
   
   
