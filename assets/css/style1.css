@@ -72,7 +72,7 @@ nav.navbar-silver a {
 
 #advertisement {
     background-color: white;
-    height: 200px;
+    height: 550px;
     width: 600px;
     display: block;
     margin-left: auto;
@@ -83,7 +83,7 @@ nav.navbar-silver a {
     display: inline-block;
     margin-left: 24px;
     margin-right: auto;
-    width: 100%;
+    width: 600px;
 }
 
 iframe {
