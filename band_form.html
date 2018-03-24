@@ -51,6 +51,10 @@
                   <input class="form-control" id="band-name-input" type="text">
                 </div>
                 <div class="form-group">
+                  <label for="location-input">Location (State)</label>
+                  <input class="form-control" id="location-input" type="text">
+                </div>
+                <div class="form-group">
                   <label for="need-input">Need</label>
                   <input class="form-control" id="need-input" type="text">
                 </div>
@@ -101,6 +105,7 @@
 
             // Need to add variables to collect user inputs
             var bandName = $("#band-name-input").val().trim();
+            var bandLocation = $("#location-input").val().trim();
             var bandNeed = $("#need-input").val().trim();
             var bandTime = moment($("#time-input").val().trim(), "MM/DD/YY").format("MM/DD/YY");
             var bandDescription = $("#description-input").val().trim();
@@ -109,6 +114,7 @@
             // Creates local "temporary" object for holding band data
             var newBand = {
                 name: bandName,
+                location: bandLocation,
                 need: bandNeed,
                 need_date: bandTime,
                 description: bandDescription,
@@ -120,6 +126,7 @@
 
             // logs everything into the console
             console.log(newBand.name);
+            console.log(newBand.location);
             console.log(newBand.need);
             console.log(newBand.need_date);
             console.log(newBand.description);
@@ -130,6 +137,7 @@
 
             //Of course you have to clear all of the text boxes
             $("#band-name-input").val("");
+            $("#location-input").val("");
             $("#need-input").val("");
             $("#time-input").val("");
             $("#description-input").val("");
@@ -142,6 +150,7 @@
             
             // Store everything into a variable.
             var bandName = childSnapshot.val().name;
+            var bandLocation = childSnapshot.val().need;
             var bandNeed = childSnapshot.val().need;
             var bandTime = childSnapshot.val().need_date;
             var bandDescription = childSnapshot.val().description;
@@ -149,13 +158,14 @@
   
             // Band Info
             console.log(bandName);
+            console.log(bandLocation);
             console.log(bandNeed);
             console.log(bandTime);
             console.log(bandDescription);
             console.log(bandMedia);
 
             // Add each train's data into the table
-            $("#posts-table > tbody").append("<tr><td>" + bandName + "</td><td>" + bandNeed + "</td><td>" +
+            $("#posts-table > tbody").append("<tr><td>" + bandName + "</td><td>" + bandLocation + "</td><td>" + bandNeed + "</td><td>" +
               bandTime + "</td><td>" + bandDescription + "</td><td>" + bandMedia + "</td></tr>");
 
         });
