@@ -1,8 +1,4 @@
 
-//still need button to hide details div and show posts-table div
-
-
-
 var config = {
   apiKey: "AIzaSyC22pg8At8rnWwjY-8HhGMlL8RSqtIO-lw",
   authDomain: "mo-bands-mo-problems.firebaseapp.com",
@@ -32,16 +28,33 @@ bandData.ref().on("child_added", function (childSnapshot, prevChildKey) {
   console.log(bDate);
   console.log(bDes);
   console.log(bMedia);
+  console.log(bLoc);
 
 
   var tr = $("<tr>");
   var headingTD = $("<td>");
-  headingTD.text(bNeed).attr("class", "heading").attr("data-bDes", bDes).attr("data-bName", bName).attr("data-bNeed", bNeed).attr("data-bDate", bDate).attr("data-bMedia", bMedia);
+  headingTD.text(bName).attr("class", "heading").attr("data-bDes", bDes).attr("data-bName", bName).attr("data-bNeed", bNeed).attr("data-bDate", bDate).attr("data-bMedia", bMedia).attr("data-bLoc", bLoc);
+
+
+  var needTD = $("<td>");
+  needTD.text(bNeed).attr("class", "heading");
+
+  var dateTD = $("<td>");
+  dateTD.text(bDate).attr("class", "heading");
+
+  var locationTD = $("<td>");
+  locationTD.text(bLoc).attr("class", "heading");
 
 
 
-  tr.append(headingTD)
- $("#posts-table").append(tr)
+  tr.append(headingTD);
+  tr.append(needTD);
+  tr.append(dateTD);
+  tr.append(locationTD);
+  $("#posts-table").append(tr);
+  $("#posts-table > tbody > tr").hide().slice(0, 10).show();
+
+
 
 })
 
@@ -52,7 +65,7 @@ $("body").on("click", ".heading", function () {
   $("#need-div").text($(this).attr("data-bNeed"));
   $("#date-div").text($(this).attr("data-bDate"));
   $("#desc-div").text($(this).attr("data-bDes"));
-  //$("#loc-div").text($(this).attr("data-bLoc"));
+  $("#loc-div").text($(this).attr("data-bLoc"));
   // Hide the main table
   $("#wrapper").hide();
   // Show the details page
@@ -63,8 +76,7 @@ $("body").on("click", ".heading", function () {
 
   // 2. This code loads the IFrame Player API code asynchronously.
 function displayVideo(videoId) {
-  //var media = childSnapshot.val().media;
-  //bandData?
+
   var player = new YT.Player('player', {
       height: '300',
       width: '300',

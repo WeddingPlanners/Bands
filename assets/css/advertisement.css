@@ -1,9 +1,42 @@
-h1 {
-  margin-left: 150px;
+#name-div {
+  margin-left: 50px;
+  font-size: 50px;
+  font-style: bold;
+  font-family: "Times New Roman", Times, serif;
 }
 
-p {
-  margin-left: 150px;
+#need-div {
+  margin-left: 50px;
+  margin-top: 50px;
+  font-size: 30px;
+}
+
+#date-div {
+margin-top: 30px;
+font-size: 20px;
+display: inline-block;
+
+}
+
+#desc-div {
+margin-top: 30px;
+margin-left: 50px;
+font-size: 20px;
+margin-bottom: 30px;
+}
+
+#loc-div {
+margin-top: 30px;
+font-size: 20px;
+display: inline-block;
+margin-left: 250px;
+}
+
+#cont-div {
+margin-top: 30px;
+font-size: 20px;
+display: inline-block;
+margin-left: 250px;
 }
 
 #player {
