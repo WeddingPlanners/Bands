@@ -16,7 +16,7 @@
 
     <!-- Link to Moment.js should go here -->
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-    
+
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 
@@ -72,7 +72,7 @@
                   </div>
                 <button class="btn btn-primary" id="add-band-btn" type="submit">Submit</button>
               </form>
-              
+
 
             </div>
 
@@ -98,7 +98,7 @@
         firebase.initializeApp(config);
 
     var database = firebase.database();
-    
+
         // Next I need to add functionality to submit button on html for adding band schedules + update the database
         $("#add-band-btn").on("click", function (event) {
             event.preventDefault();
@@ -142,9 +142,9 @@
 
             // 3. Create Firebase event for adding new band schedule to the firebase database and dynamically create row in html after user click submit button
             database.ref().on("child_added", function(childSnapshot, prevChildKey) {
-          
+
             console.log(childSnapshot.val());
-            
+
             // Store everything into a variable.
             var bandName = childSnapshot.val().name;
             var bandLocation = childSnapshot.val().need;
@@ -152,7 +152,7 @@
             var bandTime = childSnapshot.val().need_date;
             var bandDescription = childSnapshot.val().description;
             var bandMedia = childSnapshot.val().media;
-  
+
             // Band Info
             console.log(bandName);
             console.log(bandLocation);
@@ -171,10 +171,10 @@
 
     $("#searchState").on("click", function (event){
       console.log($("#stateInput").val());
-    }
-            
+    })
 
-    
+
+
     </script>
 
   </body>
