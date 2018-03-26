@@ -8,7 +8,7 @@
 
 body {
     font-family: 'Monoton', cursive;
-    background-color: black;
+    background-color: rgb(121, 118, 118);
     background-image: radial-gradient(white, rgba(255, 255, 255, .2) 2px, transparent 40px), radial-gradient(white, rgba(255, 255, 255, .15) 1px, transparent 30px), radial-gradient(white, rgba(255, 255, 255, .1) 2px, transparent 40px), radial-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, .1) 2px, transparent 30px);
     background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
     background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
@@ -70,6 +70,11 @@ nav.navbar-silver a {
     color: #111;
 }
 
+.navbar-brand {
+    font-family: 'Monoton', cursive;
+    font-size: 50px;
+}
+
 #advertisement {
     background-color: white;
     height: 200px;
@@ -79,22 +84,13 @@ nav.navbar-silver a {
     margin-right: auto;
 }
 
-#myCarousel {
-    display: inline-block;
-    margin-left: 24px;
-    margin-right: auto;
-    width: 600px;
-}
 
 iframe {
     width: 100%;
     height: 100%;
 }
 
-.navbar-brand {
-    font-family: 'Monoton', cursive;
-    font-size: 50px;
-}
+
 
 li {
     display: inline;
@@ -102,67 +98,10 @@ li {
     font-family: 'Monoton', cursive;
 }
 
-.carousel-control.left {
-    background: none;
-}
+#carousel_container{
+    padding-left: 0px;
+    padding-right: 0px;   
 
-.carousel-control.right {
-    background: none;
-}
-
-.carousel-control {
-    position: absolute;
-    top: 45%;
-    bottom: 0;
-    left: 0;
-    width: 15%;
-    font-size: auto;
-    color: #fff;
-    text-align: center;
-    opacity: 1;
-    text-shadow: none;
-}
-
-.carousel-control:hover {
-    color: #000;
-}
-
-.carousel-indicators {
-    bottom: -50px;
-}
-
-.carousel-indicators li {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    margin: 1px;
-    text-indent: -999px;
-    cursor: pointer;
-    background-color: whitesmoke;
-    background-color: rgba(0, 0, 0, 0);
-    border: 1px solid #16a085;
-    border-radius: 50%;
-    visibility: hidden;
-}
-
-.carousel-indicators .active {
-    width: 12px;
-    height: 12px;
-    margin: 0;
-    background-color: #16a085;
-}
-
-.carousel-caption {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 10;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    color: #fff;
-    text-align: center;
-    background: rgba(0, 0, 0, 0.4);
 }
 
 .states{
