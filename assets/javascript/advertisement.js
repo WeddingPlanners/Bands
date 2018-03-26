@@ -53,7 +53,7 @@ bandData.ref().orderByChild("timestamp").limitToLast(10).on("child_added", funct
   tr.append(dateTD);
   tr.append(locationTD);
   $("#posts-table").append(tr);
-})
+});
 
 $("body").on("click", ".heading", function () {
 
@@ -84,7 +84,7 @@ $("body").on("click", ".heading", function () {
       events: {
         'onReady': onPlayerReady,
 
-      }
+      },
     });
 
     // 4. The API will call this function when the video player is ready.
@@ -92,5 +92,5 @@ $("body").on("click", ".heading", function () {
       player.setPlaybackRate(1);
 
     }
-};
+  };
 
