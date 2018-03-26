@@ -1,3 +1,5 @@
+$("#details").hide();
+
 var config = {
   apiKey: "AIzaSyC22pg8At8rnWwjY-8HhGMlL8RSqtIO-lw",
   authDomain: "mo-bands-mo-problems.firebaseapp.com",
@@ -6,18 +8,12 @@ var config = {
   storageBucket: "mo-bands-mo-problems.appspot.com",
   messagingSenderId: "172100309774"
 };
+
 firebase.initializeApp(config);
 
 var bandData = firebase.database();
 
-
-
-
-
-
-
-
-bandData.ref().on("child_added", function (childSnapshot, prevChildKey) {
+bandData.ref().orderByChild("timestamp").limitToLast(10).on("child_added", function (childSnapshot, prevChildKey) {
 
   console.log(childSnapshot.val());
 
@@ -27,66 +23,74 @@ bandData.ref().on("child_added", function (childSnapshot, prevChildKey) {
   var bDate = childSnapshot.val().need_date;
   var bDes = childSnapshot.val().description;
   var bMedia = childSnapshot.val().media;
+  var bLoc = childSnapshot.val().location;
 
   console.log(bName);
   console.log(bNeed);
   console.log(bDate);
   console.log(bDes);
   console.log(bMedia);
-
-  var heading = $("<h1>");
-  heading.text(bNeed);
-  $("#posts-table > tbody").append("<tr><td>" + bName + "</td><td>" + bNeed + "</td><td>" +
-    bDate + "</td><td>" + bDes + "</td><td>" + bMedia + "</td></tr>");
-
-  heading.on("click", function () {
-    // Load the details for this ad
-    $("#details-desc").text(bDes);
-    // Hide the main table
-    $("#wrapper").hide();
-    // Show the details page
-    $("#details").show();
-  })
-  //$("#wrapper").append(heading);
-  //$("#wrapper").append("<p>" + bName + "</p><<p>" + bDes + "</p><p>" + bDate + "</p>");
-})
+  console.log(bLoc);
 
 
+
+  var tr = $("<tr>");
+  var headingTD = $("<td>");
+  headingTD.text(bName).attr("class", "heading").attr("data-bDes", bDes).attr("data-bName", bName).attr("data-bNeed", bNeed).attr("data-bDate", bDate).attr("data-bMedia", bMedia).attr("data-bLoc", bLoc);
+
+
+  var needTD = $("<td>");
+  needTD.text(bNeed).attr("class", "heading");
+
+  var dateTD = $("<td>");
+  dateTD.text(bDate).attr("class", "heading");
+
+  var locationTD = $("<td>");
+  locationTD.text(bLoc).attr("class", "heading");
+
+  tr.append(headingTD);
+  tr.append(needTD);
+  tr.append(dateTD);
+  tr.append(locationTD);
+  $("#posts-table").append(tr);
+});
+
+$("body").on("click", ".heading", function () {
+
+  // Load the details for this ad
+  $("#name-div").text($(this).attr("data-bName"));
+  $("#need-div").text($(this).attr("data-bNeed"));
+  $("#date-div").text($(this).attr("data-bDate"));
+  $("#desc-div").text($(this).attr("data-bDes"));
+  $("#loc-div").text($(this).attr("data-bLoc"));
+  // Hide the main table
+  $("#wrapper").hide();
+  // Show the details page
+  $("#details").show();
+  displayVideo($(this).attr("data-bMedia"));
+});
 
 
   // 2. This code loads the IFrame Player API code asynchronously.
-function displayVideo() {
-  //var media = childSnapshot.val().media;
-  //bandData?
+  function displayVideo(videoId) {
 
-
-  var tag = document.createElement('script');
-
-  tag.src = "https://www.youtube.com/iframe_api";
-  var firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-  // 3. This function creates an <iframe> (and YouTube player)
-  //    after the API code downloads.
-  var player;
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
+    var player = new YT.Player('player', {
       height: '300',
       width: '300',
-      videoId: '7XwdMWXz7QA',
+      videoId: videoId,
       playerVars: {
 
       },
       events: {
         'onReady': onPlayerReady,
 
-      }
+      },
     });
-  }
 
-  // 4. The API will call this function when the video player is ready.
-  function onPlayerReady(event) {
-    player.setPlaybackRate(1);
+    // 4. The API will call this function when the video player is ready.
+    function onPlayerReady(event) {
+      player.setPlaybackRate(1);
 
-  }
-}
+    }
+  };
+
