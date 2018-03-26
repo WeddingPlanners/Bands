@@ -1,3 +1,4 @@
+$("#details").hide();
 
 var config = {
   apiKey: "AIzaSyC22pg8At8rnWwjY-8HhGMlL8RSqtIO-lw",
@@ -7,11 +8,12 @@ var config = {
   storageBucket: "mo-bands-mo-problems.appspot.com",
   messagingSenderId: "172100309774"
 };
+
 firebase.initializeApp(config);
 
 var bandData = firebase.database();
 
-bandData.ref().on("child_added", function (childSnapshot, prevChildKey) {
+bandData.ref().orderByChild("timestamp").limitToLast(10).on("child_added", function (childSnapshot, prevChildKey) {
 
   console.log(childSnapshot.val());
 
@@ -31,6 +33,7 @@ bandData.ref().on("child_added", function (childSnapshot, prevChildKey) {
   console.log(bLoc);
 
 
+
   var tr = $("<tr>");
   var headingTD = $("<td>");
   headingTD.text(bName).attr("class", "heading").attr("data-bDes", bDes).attr("data-bName", bName).attr("data-bNeed", bNeed).attr("data-bDate", bDate).attr("data-bMedia", bMedia).attr("data-bLoc", bLoc);
@@ -45,17 +48,11 @@ bandData.ref().on("child_added", function (childSnapshot, prevChildKey) {
   var locationTD = $("<td>");
   locationTD.text(bLoc).attr("class", "heading");
 
-
-
   tr.append(headingTD);
   tr.append(needTD);
   tr.append(dateTD);
   tr.append(locationTD);
   $("#posts-table").append(tr);
-  $("#posts-table > tbody > tr").hide().slice(0, 10).show();
-
-
-
 })
 
 $("body").on("click", ".heading", function () {
@@ -75,9 +72,9 @@ $("body").on("click", ".heading", function () {
 
 
   // 2. This code loads the IFrame Player API code asynchronously.
-function displayVideo(videoId) {
+  function displayVideo(videoId) {
 
-  var player = new YT.Player('player', {
+    var player = new YT.Player('player', {
       height: '300',
       width: '300',
       videoId: videoId,
@@ -90,10 +87,10 @@ function displayVideo(videoId) {
       }
     });
 
-  // 4. The API will call this function when the video player is ready.
-  function onPlayerReady(event) {
-    player.setPlaybackRate(1);
+    // 4. The API will call this function when the video player is ready.
+    function onPlayerReady(event) {
+      player.setPlaybackRate(1);
 
-  }
-}
+    }
+};
 
