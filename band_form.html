@@ -164,7 +164,7 @@
               <!-- Entry Form -->
               <form>
                 <div class="form-group">
-                  <label for="band-name-input">Band Name</label>
+                  <label for="band-name-input">Band or Artist Name</label>
                   <input class="form-control" id="band-name-input" type="text">
                 </div>
                 <div class="form-group">
@@ -176,15 +176,15 @@
                   <input class="form-control" id="need-input" type="text">
                 </div>
                 <div class="form-group">
-                  <label for="time-input">When do you need it? (mm/dd/yy)</label>
+                  <label for="time-input">When Do You Need It? (mm/dd/yy)</label>
                   <input class="form-control" id="time-input" type="text">
                 </div>
                 <div class="form-group">
-                  <label for="description-input">Description of your Band</label>
+                  <label for="description-input">Description of Your Band</label>
                   <input class="form-control" id="description-input" type="text">
                 </div>
                 <div class="form-group">
-                    <label for="media-input">Post your media</label>
+                    <label for="media-input">Post Your youTube Video</label>
                     <input class="form-control" id="media-input" type="text">
                   </div>
                   <div class="form-group">
@@ -225,7 +225,7 @@
             var bandTime = moment($("#time-input").val().trim(), "MM/DD/YY").format("MM/DD/YY");
             var bandDescription = $("#description-input").val().trim();
             var bandMedia = $("#media-input").val().trim();
-            var bandContact = $("#contact-input").val().trim();
+            var bandContact = $("#emailAddress").val().trim();
 
             // Creates local "temporary" object for holding band data
             var newBand = {
