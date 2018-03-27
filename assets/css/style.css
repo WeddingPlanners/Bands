@@ -5,6 +5,9 @@
 /* Facebook Stuff */
 #fb-btn {margin-right: 15px;}
 #logout {display:none}
+.fb-share-button{
+    margin-right: 15px;
+}
 
 body {
     font-family: 'Monoton', cursive;
