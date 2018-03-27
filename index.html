@@ -78,6 +78,12 @@
         <div class="container-fluid" class="navbar-header">
             <p></p>
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <!-- Facebook Login/Logout Button -->
+                <li class="nav navbar-nav navbar-right">
+                    <fb:login-button id="fb-btn" scope="public_profile,email" onlogin="checkLoginState();">
+                        </fb:login-button>
+                        <a id="logout" href="#" onclick="logout()">Logout</a>
+                </li>
                 <li class="nav-item">
                     <a class="navbar-brand" href="index.html" >Mo Bands</a>
                 </li>
@@ -86,12 +92,6 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="advertisement.html">All Posts</a>
-                </li>
-                <!-- Facebook Login/Logout Button -->
-                <li class="nav navbar-nav navbar-right">
-                    <fb:login-button id="fb-btn" scope="public_profile,email" onlogin="checkLoginState();">
-                        </fb:login-button>
-                        <a id="logout" href="#" onclick="logout()">Logout</a>
                 </li>
                 <li class="nav-item">
                     <a class="USstates">
