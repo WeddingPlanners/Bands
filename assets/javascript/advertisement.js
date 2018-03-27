@@ -40,13 +40,13 @@ bandData.ref().orderByChild("timestamp").limitToLast(10).on("child_added", funct
 
 
   var needTD = $("<td>");
-  needTD.text(bNeed).attr("class", "heading");
+  needTD.text(bNeed);
 
   var dateTD = $("<td>");
-  dateTD.text(bDate).attr("class", "heading");
+  dateTD.text(bDate);
 
   var locationTD = $("<td>");
-  locationTD.text(bLoc).attr("class", "heading");
+  locationTD.text(bLoc);
 
   tr.append(headingTD);
   tr.append(needTD);
@@ -93,4 +93,3 @@ $("body").on("click", ".heading", function () {
 
     }
   };
-
